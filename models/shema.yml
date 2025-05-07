@@ -1,7 +1,18 @@
 version: 2
 sources:
     - name: gz_raw_data
-      tables:
+      tables: 
        - name: raw_gz_sales
-       - name: raw_gz_product
-       - name: raw_gz_ship
+         description: sales of Greenweez / we have on row per product_id found in each orders_id
+         identifier: raw_gz_sales
+         columns: 
+          - name: orders_id
+            tests: 
+             - unique
+             - not_null
+              
+       -    name: order_id
+                 
+       - name: raw_gz_products 
+       - name: raw_gz_ship 
+      

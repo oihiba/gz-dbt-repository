@@ -4,15 +4,11 @@ sources:
       tables: 
        - name: raw_gz_sales
          description: sales of Greenweez / we have on row per product_id found in each orders_id
-         identifier: raw_gz_sales
          columns: 
-          - name: orders_id
-            tests: 
-             - unique
-             - not_null
-              
-       -    name: order_id
-                 
-       - name: raw_gz_products 
+          - name: orders_id 
+         tests:
+           - unique:
+              column_name: "(orders_id || '-' || pdt_id)"   
+       - name: raw_gz_product
        - name: raw_gz_ship 
       

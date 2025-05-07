@@ -3,6 +3,11 @@ sources:
     - name: gz_raw_data
       tables: 
        - name: raw_gz_sales
+
+         loaded_at_field: "CAST(date_date AS TIMESTAMP)"
+         freshness:
+          warn_after : {count: 90, period: day}
+
          description: sales of Greenweez / we have on row per product_id found in each orders_id
          columns: 
           - name: orders_id 
@@ -10,5 +15,5 @@ sources:
            - unique:
               column_name: "(orders_id || '-' || pdt_id)"   
        - name: raw_gz_product
-       - name: raw_gz_ship 
-      
+       - name: raw_gz_ship
+          
